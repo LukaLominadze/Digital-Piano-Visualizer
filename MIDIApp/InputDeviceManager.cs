@@ -10,9 +10,12 @@ namespace MIDIApp
 {
     internal class InputDeviceManager
     {
+        // Toggled device where inputs will be read from
         public InputDevice MIDIDevice { get; private set; }
+        // All connected input devices
 
         public List<InputDevice> InputDevices = new List<InputDevice>();
+        // Function to clear the listening events of the current device
 
         Action? ClearEventsFunc;
 

@@ -13,10 +13,14 @@ namespace MIDIApp.layers
     {
         private Framebuffer? framebuffer;
         private InputDeviceManager? inputDeviceManager;
+        // Used for checking if we have switched to another midi device
         private int current = 0;
         private int previous = 0;
+        // ------------------------------------------------------------
+        // Used for toggling the colors of the keys
         private bool[] pressed = new bool[88];
 
+        // Define parameters for how the keys are going to look
         public class KeyStats
         {
             public static float Offset = 0.05f;
@@ -82,6 +86,7 @@ namespace MIDIApp.layers
 
         public override void OnUpdate(FrameEventArgs args)
         {
+            // If we have switched to another device, start listening
             if (previous != current)
             {
                 ReloadDevice();
@@ -104,6 +109,7 @@ namespace MIDIApp.layers
             framebuffer!.Bind();
             Renderer2D.BeginScene();
             Renderer2D.Clear();
+            // Draw the keys
             float offsetX = (KeyStats.Width + KeyStats.Offset) * 26 - KeyStats.Width / 2.0f;
             float offsetY = KeyStats.Height * 2;
             int k = 9;
@@ -137,6 +143,7 @@ namespace MIDIApp.layers
                     k = 0;
                 }
             }
+            // ------------------
             Renderer2D.EndScene();
             framebuffer.Unbind();
         }
