@@ -1,0 +1,10 @@
+**/.vs/
+**.sln
+**.csproj
+
+**/bin/
+**/obj/
+!/vendor/bin/
+
+SandboxTK/res/
+SandboxTK/Program.cs

@@ -1,0 +1,3 @@
+[submodule "Game2D"]
+	path = Game2D
+	url = https://github.com/LukaLominadze/KakaliEngine
